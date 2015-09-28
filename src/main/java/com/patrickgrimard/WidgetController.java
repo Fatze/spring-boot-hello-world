@@ -16,4 +16,5 @@ public class WidgetController {
     public Widget index() {
         return new Widget("green", 10, 7);
     }
+
 }
