@@ -8,17 +8,40 @@
             display: none !important;
         }
     </style>
+
 </head>
 
-<body ng-app="hello">
+
+
+
+
+<body ng-app="">
 <div class="container">
     <h1>Greeting</h1>
-    <div ng-controller="home" ng-cloak class="ng-cloak">
-        <p>The ID is {{greeting.id}}</p>
-        <p>The content is {{greeting.content}}</p>
-    </div>
+    <script type="text/ng-template"  id="tree_item_renderer.html">
+        {{data.Name}}
+        <ul>
+            <li ng-repeat="data in data.children" ng-include="'tree_item_renderer.html'"></li>
+        </ul>
+    </script>
+    <ul  ng-controller="Hello">
+        <li ng-repeat="data in greeting" ng-include="'tree_item_renderer.html'"></li>
+    </ul>
+<!--    <div ng-controller="Hello" ng-cloak class="ng-cloak">
+
+       &lt;!&ndash; <p>The ID is {{greeting}}</p>&ndash;&gt;
+&lt;!&ndash;        <table>
+
+        <tr ng-repeat="(id,proc) in greeting">
+            <td ng-repeat="pr in proc">
+                {{pr}}
+            </td>
+        </td>
+        </table>&ndash;&gt;
+       &lt;!&ndash; <p>The ID is {{greeting}}</p>&ndash;&gt;
+    </div>-->
 </div>
-<script src="js/angular-bootstrap.js" type="text/javascript"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js" type="text/javascript"></script>
 <script src="js/hello.js"></script>
 </body>
 </html>
